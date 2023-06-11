@@ -28,6 +28,22 @@ services:
       WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
     networks:
       - wpsite
+  cli:
+    image: wordpress:cli
+    container_name: cli
+    volumes_from:
+      - wordpress
+    depends_on:
+      - db
+      - wordpress
+    command: "--info"
+    user: xfs
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+    networks:
+      - wpsite
 networks:
   wpsite:
 volumes:

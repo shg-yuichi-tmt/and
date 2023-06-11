@@ -49,6 +49,7 @@ wp-config.php
 
 # *** Add ***
 /wp-content/upgrade/
+/wp-content/ai1wm-backups/
 /ads.txt
 /default_page.png
 
