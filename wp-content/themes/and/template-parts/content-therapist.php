@@ -64,9 +64,14 @@
                                 <dt>名前：</dt>
                                 <dd><?php echo get_post_meta($post->ID, '__therapist__name__field', true); ?></dd>
                                 <dt>年齢：</dt>
-                                <dd><?php echo get_post_meta($post->ID, '__therapist__age__field', true); ?></dd>
+                                <dd>
+                                    <?php
+                                    echo get_post_meta($post->ID, '__therapist__age__field', true);
+                                    echo get_post_meta($post->ID, '__therapist__unit__field', true);
+                                    ?>
+                                </dd>
                                 <dt>身長：</dt>
-                                <dd><?php echo get_post_meta($post->ID, '__therapist__height__field', true); ?></dd>
+                                <dd><?php echo get_post_meta($post->ID, '__therapist__height__field', true); ?>cm</dd>
                                 <?php if (!empty(get_post_meta($post->ID, 'therapist__new__field', true))) : ?>
                                     <dt>入店日：</dt>
                                     <dd>
@@ -76,7 +81,7 @@
                                     </dd>
                                 <?php endif; ?>
                                 <dt class="comment">お店からの紹介：</dt>
-                                <dd class="comment"><?php echo get_post_meta($post->ID, '__therapist__comment__field', true); ?></dd>
+                                <dd class="comment"><?php echo nl2br(htmlspecialchars(get_post_meta($post->ID, '__therapist__comment__field', true))); ?></dd>
                             </dl>
                         </div>
                     </div>

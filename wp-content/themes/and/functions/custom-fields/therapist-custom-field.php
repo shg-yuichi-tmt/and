@@ -21,6 +21,12 @@ function insert_therapist_fields()
     <input type="text" name="therapist__name__field" value="<?php echo get_post_meta($post->ID, '__therapist__name__field', true); ?>" size="40">
     <h4 class="admin_h4">年齢</h4>
     <input type="number" name="therapist__age__field" value="<?php echo get_post_meta($post->ID, '__therapist__age__field', true); ?>" size="10">
+    <select name="therapist__unit__field" id="therapist__unit__field">
+        <option value="歳" <?php if (get_post_meta($post->ID, '__therapist__unit__field', true) == '歳') : echo 'selected';
+                            endif; ?>>歳</option>
+        <option value="代" <?php if (get_post_meta($post->ID, '__therapist__unit__field', true) == '代') : echo 'selected';
+                            endif; ?>>代</option>
+    </select>
     <h4 class="admin_h4">身長</h4>
     <input type="number" name="therapist__height__field" value="<?php echo get_post_meta($post->ID, '__therapist__height__field', true); ?>" size="20">
     <h4 class="admin_h4">入店日</h4>
@@ -121,6 +127,9 @@ function save_therapist_fields($post_ID)
     }
     if (!empty($_POST['therapist__age__field'])) {
         update_post_meta($post_ID, '__therapist__age__field', $_POST['therapist__age__field']);
+    }
+    if (!empty($_POST['therapist__unit__field'])) {
+        update_post_meta($post_ID, '__therapist__unit__field', $_POST['therapist__unit__field']);
     }
     if (!empty($_POST['therapist__height__field'])) {
         update_post_meta($post_ID, '__therapist__height__field', $_POST['therapist__height__field']);

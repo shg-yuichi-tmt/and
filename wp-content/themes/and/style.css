@@ -1080,19 +1080,6 @@ textarea {
 	opacity: .4;
 }
 
-.mainVisual::after {
-	content: '';
-	width: 260px;
-	height: 260px;
-	background-image: url('/assets/img/logo_symbol.png');
-	background-repeat: no-repeat;
-	background-size: contain;
-	position: absolute;
-	bottom: 45px;
-	left: 430px;
-	z-index: 5;
-}
-
 .mainVisual .copy {
 	position: absolute;
 	top: 50px;
@@ -1124,6 +1111,45 @@ textarea {
 .mainVisual .post-thumbnail {
 	width: 962px;
 	margin-left: auto;
+}
+
+.mainVisual .post-thumbnail .logo {
+	text-align: center;
+	color: #BF9A56;
+	letter-spacing: 3px;
+	position: absolute;
+	bottom: 170px;
+	left: 30%;
+	text-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff;
+}
+
+.mainVisual .post-thumbnail .logo::before {
+	content: '';
+	width: 130px;
+	height: 130px;
+	background-image: url(/assets/img/logo_symbol.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: -120px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.mainVisual .post-thumbnail .logo .symbol {
+	font-family: 'alta', serif;
+	font-size: 3.5rem;
+}
+
+.mainVisual .post-thumbnail .logo .name {
+	font-family: 'Hiragino Mincho Pro', serif;
+	font-size: 2.5rem;
+}
+
+.mainVisual .post-thumbnail .logo .tx {
+	font-family: 'glacial indifference', serif;
+	font-size: 1rem;
+	letter-spacing: .75rem;
 }
 
 .main-navigation {
@@ -1670,16 +1696,17 @@ textarea {
 
 .access .flex .tx::after {
 	content: '';
-	width: 411px;
-	height: 413px;
-	background-image: url('/assets/img/and_logo.png');
+	width: 350px;
+	height: 350px;
+	background-image: url(/assets/img/and_logo.png);
 	background-size: contain;
 	background-repeat: no-repeat;
 	position: absolute;
-	top: -150px;
-	right: -266px;
+	top: 50%;
+	right: -90px;
 	z-index: -1;
-	opacity: .8;
+	opacity: .6;
+	transform: translateY(-50%);
 }
 
 .access .flex .tx h3 {
@@ -1691,6 +1718,15 @@ textarea {
 .access .flex .tx th {
 	text-align: left;
 	font-weight: normal;
+}
+
+.access .flex .tx table {
+	margin: 0;
+}
+
+.access .flex .tx table th,
+.access .flex .tx table td {
+	padding-bottom: 5px;
 }
 
 .type-page .thumbnail {
@@ -2988,6 +3024,32 @@ textarea {
 		width: 77%;
 	}
 
+	.mainVisual .post-thumbnail .logo {
+		left: 35%;
+		bottom: 30%;
+	}
+
+	.mainVisual .post-thumbnail .logo .symbol {
+		font-size: 1.875rem;
+	}
+
+	.mainVisual .post-thumbnail .logo .name {
+		font-size: 1.125rem;
+	}
+
+	.mainVisual .post-thumbnail .logo .tx {
+		font-size: .75rem;
+	}
+
+	.mainVisual .post-thumbnail .logo::before {
+		content: none;
+		width: 45px;
+		height: 45px;
+		top: -50px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
 	.mainVisual .copy {
 		left: 16px;
 	}
@@ -2999,13 +3061,6 @@ textarea {
 	.mainVisual .copy p {
 		font-size: .875rem;
 		margin: 40px 30px 0 0;
-	}
-
-	.mainVisual::after {
-		width: 100px;
-		height: 100px;
-		left: 30%;
-		bottom: 60px;
 	}
 
 	.intro .container {

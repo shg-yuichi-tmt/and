@@ -24,7 +24,7 @@
 				<h3>Twitter</h3>
 			</div>
 			<div class="feed">
-				<a class="twitter-timeline" href="https://twitter.com/TwitterJP?ref_src=twsrc%5Etfw"></a>
+				<a class="twitter-timeline" href="https://twitter.com/and_0316?ref_src=twsrc%5Etfw"></a>
 				<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 			</div>
 		</div>

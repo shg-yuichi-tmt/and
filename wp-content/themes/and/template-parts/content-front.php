@@ -24,6 +24,10 @@
                     the_post_thumbnail();
                 endif;
                 ?>
+                <div class="logo">
+                    <div class="and"><span class="symbol">&</span><span class="name"> - アンド -</span></div>
+                    <div class="tx">RELAXATION SALON</div>
+                </div>
             </div>
         </div>
         <nav id="site-navigation" class="main-navigation">
@@ -98,7 +102,12 @@
                                 <div class="tx">
                                     <div class="name">
                                         <h3><?php echo get_post_meta($post->ID, '__therapist__name__field', true); ?></h3>
-                                        <span class="age">〇〇歳</span>
+                                        <span class="age">
+                                            <?php
+                                            echo get_post_meta($post->ID, '__therapist__age__field', true);
+                                            echo get_post_meta($post->ID, '__therapist__unit__field', true);
+                                            ?>
+                                        </span>
                                     </div>
                                     <div class="info">T.<?php echo get_post_meta($post->ID, '__therapist__height__field', true); ?>cm</div>
                                 </div>
@@ -145,7 +154,12 @@
                                 <div class="tx">
                                     <div class="name">
                                         <h3><?php echo get_post_meta($post->ID, '__therapist__name__field', true); ?></h3>
-                                        <span class="age">〇〇歳</span>
+                                        <span class="age">
+                                            <?php
+                                            echo get_post_meta($post->ID, '__therapist__age__field', true);
+                                            echo get_post_meta($post->ID, '__therapist__unit__field', true);
+                                            ?>
+                                        </span>
                                     </div>
                                     <div class="info">T.<?php echo get_post_meta($post->ID, '__therapist__height__field', true); ?>cm</div>
                                 </div>
@@ -167,7 +181,7 @@
                         <h2>Twitter <span class="sm">ツイッター</span></h2>
                     </div>
                     <div class="feed">
-                        <a class="twitter-timeline" href="https://twitter.com/TwitterJP?ref_src=twsrc%5Etfw"></a>
+                        <a class="twitter-timeline" href="https://twitter.com/and_0316?ref_src=twsrc%5Etfw"></a>
                         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     </div>
                 </div>
@@ -261,7 +275,7 @@
                 </div>
                 <div class="flex">
                     <div class="map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3215.702421759486!2d139.37474897643634!3d36.295269695998776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601f2088259a5903%3A0x85dc76853348b657!2z44CSMzczLTAwMjYg576k6aas55yM5aSq55Sw5biC5p2x5pys55S677yS77yS4oiS77yZ!5e0!3m2!1sja!2sjp!4v1686070253402!5m2!1sja!2sjp" width="613" height="497" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6431.1845715514355!2d139.37583219705476!3d36.29794148649816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601f2061f181b549%3A0x9e7da137cc2c25b2!2z44CSMzczLTAwMjYg576k6aas55yM5aSq55Sw5biC5p2x5pys55S6!5e0!3m2!1sja!2sjp!4v1686728648245!5m2!1sja!2sjp" width="613" height="497" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <div class="tx">
                         <h3>relaxation salon &. -アンド-</h3>
@@ -269,15 +283,15 @@
                             <tbody>
                                 <tr>
                                     <th>住所</th>
-                                    <td>群馬県太田市東本町22-9</td>
+                                    <td>群馬県太田市東本町</td>
                                 </tr>
                                 <tr>
                                     <th>最寄り</th>
-                                    <td>太田駅北口から徒歩3分</td>
+                                    <td>太田駅北口から徒歩3分<br>(お車でお越しの方はお近くのコインパーキングへお願い致します。)</td>
                                 </tr>
                                 <tr>
                                     <th>OPEN</th>
-                                    <td>12:00 ~ 0:00</td>
+                                    <td>10:00-26:00</td>
                                 </tr>
                                 <tr>
                                     <th>電話番号</th>
