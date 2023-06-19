@@ -55,7 +55,7 @@
                     <p>人と人との繋がりを大切に。</p>
                     <p>日々の喧騒で疲れた身体に。</p>
                     <p>隠れ家の様な落ち着いた雰囲気の中、お客様が心身共に【安堵】できる空間を。</p>
-                    <p>安心して来店していただけるリラクゼーションサロンを目指して・・</p>
+                    <p>安心してご来店していただけるリラクゼーションサロンを目指して・・</p>
                 </div>
             </div>
         </section>
@@ -201,7 +201,7 @@
                                     <li>
                                         <article>
                                             <div class="thumbnail">
-                                                <?php if (!empty(the_post_thumbnail())) : ?>
+                                                <?php if (has_post_thumbnail()) : ?>
                                                     <?php the_post_thumbnail(); ?>
                                                 <?php else : ?>
                                                     <img src="/assets/img/logo_symbol.png" alt="&のロゴ">

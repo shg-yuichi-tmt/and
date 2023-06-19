@@ -64,6 +64,14 @@
 						</div>
 					</div>
 				<?php else : ?>
+					<div class="contact">
+						<div class="tel">
+							<div class="hour">
+								<p>営業時間：10:00-26:00 <br>受付時間：9:30-24:00<br>※ライン予約は24時間受付中
+								</p>
+							</div>
+						</div>
+					</div>
 					<nav id="site-navigation" class="main-navigation">
 						<?php
 						wp_nav_menu(

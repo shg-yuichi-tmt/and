@@ -1718,6 +1718,11 @@ textarea {
 .access .flex .tx th {
 	text-align: left;
 	font-weight: normal;
+	width: 20%;
+}
+
+.access .flex .tx td {
+	width: 80%;
 }
 
 .access .flex .tx table {
@@ -2591,6 +2596,10 @@ textarea {
 	text-align: center;
 }
 
+.auto_reply {
+	text-align: center;
+}
+
 .type-page .news {
 	margin-top: 4.5rem;
 }
@@ -2821,7 +2830,13 @@ textarea {
 	}
 
 	.site-branding {
-		width: 100px;
+		width: 140px;
+		display: flex;
+		align-items: center;
+	}
+
+	.site-header .container .contact {
+		width: calc(100% - 150px);
 	}
 
 	#site-navigation li a {
@@ -2897,7 +2912,7 @@ textarea {
 	}
 
 	#menu_btn {
-		top: 0px;
+		top: 10px;
 		right: 15px;
 		transition: .3s;
 		cursor: pointer;
@@ -3025,8 +3040,8 @@ textarea {
 	}
 
 	.mainVisual .post-thumbnail .logo {
-		left: 35%;
-		bottom: 30%;
+		left: 30%;
+		bottom: 10%;
 	}
 
 	.mainVisual .post-thumbnail .logo .symbol {
@@ -3039,13 +3054,14 @@ textarea {
 
 	.mainVisual .post-thumbnail .logo .tx {
 		font-size: .75rem;
+		letter-spacing: 4px;
 	}
 
 	.mainVisual .post-thumbnail .logo::before {
-		content: none;
-		width: 45px;
-		height: 45px;
-		top: -50px;
+		content: '';
+		width: 80px;
+		height: 80px;
+		top: -80px;
 		left: 50%;
 		transform: translateX(-50%);
 	}
@@ -3194,6 +3210,10 @@ textarea {
 
 	.access .flex .map {
 		margin: 0 0 50px 0;
+	}
+
+	.access .flex .tx {
+		margin-bottom: 30px;
 	}
 
 	.access .flex .tx::after {

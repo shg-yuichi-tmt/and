@@ -13,7 +13,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="img">
         <?php
-        if (!empty(the_post_thumbnail('post_thumbnail'))) :
+        if (has_post_thumbnail()) :
             the_post_thumbnail('post_thumbnail');
         else :
             echo '<img src="/assets/img/logo_symbol.png" alt="">';
