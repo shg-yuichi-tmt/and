@@ -200,22 +200,24 @@
                                 while ($query->have_posts()) : $query->the_post(); ?>
                                     <li>
                                         <article>
-                                            <div class="thumbnail">
-                                                <?php if (has_post_thumbnail()) : ?>
-                                                    <?php the_post_thumbnail(); ?>
-                                                <?php else : ?>
-                                                    <img src="/assets/img/logo_symbol.png" alt="&のロゴ">
-                                                <?php endif; ?>
-                                            </div>
-                                            <div class="tx">
-                                                <div class="ttl">
-                                                    <div class="date"><?php the_time('Y-m-d H:i') ?></div>
-                                                    <h3><?php the_title(); ?></h3>
+                                            <a href="<?php echo esc_url(get_permalink()); ?>" rel="bookmark">
+                                                <div class=" thumbnail">
+                                                    <?php if (has_post_thumbnail()) : ?>
+                                                        <?php the_post_thumbnail(); ?>
+                                                    <?php else : ?>
+                                                        <img src="/assets/img/logo_symbol.png" alt="&のロゴ">
+                                                    <?php endif; ?>
                                                 </div>
-                                                <div class="desc">
-                                                    <?php the_excerpt(); ?>
+                                                <div class="tx">
+                                                    <div class="ttl">
+                                                        <div class="date"><?php the_time('Y-m-d H:i') ?></div>
+                                                        <h3><?php the_title(); ?></h3>
+                                                    </div>
+                                                    <div class="desc">
+                                                        <?php the_excerpt(); ?>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </a>
                                         </article>
                                     </li>
                             <?php endwhile;

@@ -51,7 +51,7 @@
 	<?php if (wp_is_mobile()) : ?>
 		<div class="footer_cta">
 			<a href="https://lin.ee/2QF0FPR" class="line"><img src="/assets/img/line_icon.png" alt="LINEのアイコン">LINEで予約</a>
-			<a href="#" class="tel"><img src="/assets/img/phone_icon.png" alt="LINEのアイコン">電話で予約</a>
+			<a href="tel:0276578093" class="tel"><img src="/assets/img/phone_icon.png" alt="LINEのアイコン">電話で予約</a>
 		</div>
 	<?php endif; ?>
 	<div class="site-info">

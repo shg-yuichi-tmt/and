@@ -1021,6 +1021,7 @@ textarea {
 .site-header .container {
 	padding: 16px 82px;
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
 	background-color: #fff;
 }
@@ -1083,7 +1084,7 @@ textarea {
 .mainVisual .copy {
 	position: absolute;
 	top: 50px;
-	left: 124px;
+	left: 8%;
 	writing-mode: vertical-rl;
 }
 
@@ -1504,10 +1505,15 @@ textarea {
 }
 
 .front_news .container .news article {
-	display: flex;
 	border-bottom: 1px solid #BF9663;
 	padding-bottom: 15px;
 	margin-bottom: 15px;
+}
+
+.front_news .container .news article a {
+	text-decoration: none;
+	color: inherit;
+	display: flex;
 }
 
 .front_news .container .news article .thumbnail {
@@ -2184,6 +2190,30 @@ textarea {
 .type-page .payment .card .item:nth-child(4) img,
 .type-page .payment .card .item:nth-child(5) img {
 	height: 60px;
+}
+
+.type-page .payment .button {
+	margin: 30px 0 40px 0;
+}
+
+.type-page .payment .button a {
+	position: relative;
+	width: 30%;
+	display: block;
+	background-color: #B9B2A5;
+	padding: 10px;
+	text-decoration: none;
+	color: #fff;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.type-page .payment .button a::after {
+	content: '>';
+	position: absolute;
+	top: 50%;
+	right: 8px;
+	transform: translateY(-50%) scaleY(1.2);
 }
 
 .type-page .payment .note ul {
@@ -3359,6 +3389,10 @@ textarea {
 		padding-left: 30px;
 	}
 
+	.type-page .payment .button a {
+		width: 90%;
+	}
+
 	.type-page .payment .note ul li {
 		font-size: .875rem;
 		margin-bottom: 5px;
@@ -3511,6 +3545,19 @@ textarea {
 
 	.type-page .review_form>.form dl dd #therapist {
 		width: 100%;
+	}
+
+	.type-page section.article .header {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.type-page section.article .header .title {
+		margin-bottom: 15px;
+	}
+
+	.type-page section.article p {
+		font-size: .875rem;
 	}
 
 	.breadcrumbs {
