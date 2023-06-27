@@ -19,6 +19,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8WVLXYXK8J"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+		gtag('config', 'G-8WVLXYXK8J');
+	</script>
+
 	<?php wp_head(); ?>
 </head>
 
@@ -31,7 +43,7 @@
 			<div id="loading-wrapper">
 				<div id="loading__content">
 					<div class="logo">
-						<img src="/assets/img/and_logo.png" alt="andのロゴ">
+						<img src="/assets/img/logo03.png" alt="&. -アンド- RELAXATION SALON">
 					</div>
 				</div>
 			</div>
@@ -55,8 +67,7 @@
 						<div class="tel">
 							<a href="tel:0276578093">0276-57-8093</a>
 							<div class="hour">
-								<p>営業時間：10:00-26:00 <br>受付時間：9:30-24:00 ※ライン予約は24時間受付中
-								</p>
+								<p>受付時間：午前9:30-深夜0:00<br>営業時間：午前10:00-深夜2:00</p>
 							</div>
 						</div>
 						<div class="line">
@@ -67,8 +78,7 @@
 					<div class="contact">
 						<div class="tel">
 							<div class="hour">
-								<p>営業時間：10:00-26:00 <br>受付時間：9:30-24:00<br>※ライン予約は24時間受付中
-								</p>
+								<p>受付時間：午前9:30-深夜0:00<br>営業時間：午前10:00-深夜2:00</p>
 							</div>
 						</div>
 					</div>

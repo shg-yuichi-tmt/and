@@ -34,7 +34,7 @@
 	<div class="footer_nav">
 		<div class="container">
 			<div class="footer_logo">
-				<img src="/assets/img/footer_logo.png" alt="& -アンド-">
+				<img src="/assets/img/logo01_w.png" alt="& -アンド-">
 			</div>
 			<div class="nav">
 				<?php

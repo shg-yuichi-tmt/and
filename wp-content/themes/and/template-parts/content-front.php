@@ -66,7 +66,8 @@
                 </div>
                 <div class="list">
                     <?php
-                    $current_date = date('Y-m-d');
+                    ini_set('date.timezone', 'Asia/Tokyo');
+                    $current_date = date('Y-m-d', strtotime('-3 hours'));
                     $today_args = array(
                         'post_type' => 'therapist',
                         'posts_per_page' => 8,

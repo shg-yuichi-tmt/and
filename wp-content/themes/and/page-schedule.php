@@ -55,6 +55,7 @@ get_header();
             <div class="container fadein">
                 <div class="date">
                     <?php
+                    ini_set('date.timezone', 'Asia/Tokyo');
                     $weekdays = array('日', '月', '火', '水', '木', '金', '土');
                     $current_date = date('Y-m-d');
                     for ($i = 0; $i < 7; $i++) {
