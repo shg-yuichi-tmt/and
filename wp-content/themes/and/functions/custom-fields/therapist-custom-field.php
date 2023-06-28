@@ -104,12 +104,13 @@ function insert_therapist_schedule_field()
 function save_therapist_fields($post_ID)
 {
     // 当月の月初と月末の日付を取得
-    $start_date = date('Y-m-01');
-    $end_date = date('Y-m-t');
+    $today = date('Y-m-d');
+    $current_month_start = date('Y-m-01', strtotime($today));
+    $current_month_end = date('Y-m-t', strtotime($today . ' +1 month'));;
 
     // 日付の範囲でループ
-    $current_date = $start_date;
-    while ($current_date <= $end_date) {
+    $current_date = $current_month_start;
+    while ($current_date <= $current_month_end) {
         $meta_key = 'therapist__schedule__field__' . $current_date;
 
         if (isset($_POST[$meta_key])) {
