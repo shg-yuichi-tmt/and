@@ -2806,6 +2806,32 @@ textarea {
 	font-size: 1.5rem;
 }
 
+.footer_links .container .line_banner>div {
+	margin-bottom: 50px;
+}
+
+.footer_links .container .banners {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.footer_links .container .banners .item {
+	width: 200px;
+	margin: 0 20px 20px 0;
+}
+
+.footer_links .container .banners .item:last-child {
+	margin-bottom: 0;
+}
+
+.footer_links .container .banners .item a {
+	display: block;
+}
+
+.footer_links .container .banners .item img {
+	width: 100%;
+}
+
 .footer_links .container .twitter .feed {
 	height: 600px;
 	overflow: auto;
@@ -3629,6 +3655,10 @@ textarea {
 
 	.footer_links .container>div:nth-child(odd) {
 		margin: 0 0 50px 0;
+	}
+
+	.footer_links .container .banners {
+		justify-content: center;
 	}
 
 	.footer_cta {
