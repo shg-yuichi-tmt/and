@@ -66,14 +66,16 @@
                 </div>
                 <div class="list">
                     <?php
-                    ini_set('date.timezone', 'Asia/Tokyo');
-                    $current_date = date('Y-m-d', strtotime('-3 hours'));
+                    $current_time = current_time('timestamp');
+                    $adjusted_time = strtotime('-3 hours', $current_time);
+                    $adjusted_time_formatted = date_i18n('Y-m-d', $adjusted_time);
+
                     $today_args = array(
                         'post_type' => 'therapist',
                         'posts_per_page' => 8,
                         'meta_query' => array(
                             array(
-                                'key' => 'therapist__schedule__field__' . $current_date,
+                                'key' => 'therapist__schedule__field__' . $adjusted_time_formatted,
                                 'compare' => '!=',
                                 'value' => '',
                             ),

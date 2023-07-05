@@ -55,17 +55,21 @@ get_header();
             <div class="container fadein">
                 <div class="date">
                     <?php
-                    ini_set('date.timezone', 'Asia/Tokyo');
                     $weekdays = array('日', '月', '火', '水', '木', '金', '土');
-                    $current_date = date('Y-m-d');
-                    for ($i = 0; $i < 7; $i++) {
-                        $date = date('m/d', strtotime("+$i days"));
-                        $data_date = date('Y-m-d', strtotime("+$i days"));
-                        $weekday = $weekdays[date('w', strtotime("+$i days"))];
+                    $current_time = current_time('timestamp');
+                    $adjusted_time = strtotime('-3 hours', $current_time);
+                    $adjusted_time_formatted = date_i18n('Y-m-d', $adjusted_time);
+
+                    for ($i = 0; $i < 7; $i++) :
+                        $date = date_i18n('m/d', strtotime("+$i days"));
+                        $data_date = date_i18n('Y-m-d', strtotime("+$i days"));
+                        $weekday = $weekdays[date_i18n('w', strtotime("+$i days"))];
+
+                        $current_class = ($adjusted_time_formatted == $data_date) ? 'current' : '';
                     ?>
-                        <div class="item <?php if ($current_date == $data_date) : echo 'current';
-                                            endif; ?>" id="post-load-<?php echo $data_date ?>" data-date="<?php echo $data_date ?>"><?php echo $date ?> (<?php echo $weekday ?>)</div>
-                    <?php } ?>
+
+                        <div class="item <?php echo $current_class; ?>" id="post-load-<?php echo $data_date ?>" data-date="<?php echo $data_date ?>"><?php echo $date ?> (<?php echo $weekday ?>)</div>
+                    <?php endfor; ?>
                 </div>
                 <div class="list">
 
@@ -75,7 +79,7 @@ get_header();
                         'posts_per_page' => 8,
                         'meta_query' => array(
                             array(
-                                'key' => 'therapist__schedule__field__' . $current_date,
+                                'key' => 'therapist__schedule__field__' . $adjusted_time_formatted,
                                 'compare' => '!=',
                                 'value' => '',
                             ),
