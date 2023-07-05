@@ -45,6 +45,9 @@
 				<div class="item">
 					<a href="https://www.es-maniax.com/" target="_blank" rel="noopener noreferrer nofollow"><img loading="lazy" src="https://s3-ap-northeast-1.amazonaws.com/temani/20210813173709_c502012_b38zsxhflj4joub0_w680.jpg"></a>
 				</div>
+				<div class="item">
+					<a href="https://job.eslove.jp/kanto/gunma/search" target="_blank"><img src="https://job.eslove.jp/eslove_job_front_theme/img/banner/banner_468x60.jpg" alt="群馬のメンズエステ求人情報ならエステラブワーク" /></a>
+				</div>
 			</div>
 		</div>
 		<div class="twitter">
