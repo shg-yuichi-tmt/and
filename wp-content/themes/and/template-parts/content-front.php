@@ -62,13 +62,17 @@
         <section class="front_schedule fadein">
             <div class="container">
                 <?php
+                $weekdays = array('日', '月', '火', '水', '木', '金', '土');
+
                 $current_time = current_time('timestamp');
                 $adjusted_time = strtotime('-3 hours', $current_time);
                 $adjusted_time = date_i18n('Y-m-d', $adjusted_time);
                 $adjusted_time_formatted = date_i18n('Y年m月d日', $adjusted_time);
+
+                $weekday = $weekdays[date_i18n('w')];
                 ?>
                 <div class="h">
-                    <h2><span class="sm">TODAY'S SCHEDULE</span>本日の出勤<span class="date"><?php echo $adjusted_time_formatted; ?></span></h2>
+                    <h2><span class="sm">TODAY'S SCHEDULE</span>本日の出勤<span class="date"><?php echo $adjusted_time_formatted; ?>（<?php echo $weekday; ?>）</span></h2>
                 </div>
                 <div class="list">
                     <?php
