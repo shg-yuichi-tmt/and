@@ -17,6 +17,21 @@ add_action('admin_menu', 'add_therapist_fields');
 function insert_therapist_fields()
 {
     global $post; ?>
+    <h4 class="admin_h4">画像</h4>
+    <div class="upload_media_wrap">
+        <?php for ($i = 0; $i < 4; $i++) : ?>
+            <div class="item">
+                <div class="admin_media">
+                    <img id="image-preview-<?php echo $i; ?>" src="<?php echo get_post_meta($post->ID, '__therapist__img' . $i . '__field', true); ?>">
+                </div>
+                <div class="flex">
+                    <input id="upload_image_button-<?php echo $i; ?>" type="button" class="button upload_image_button" value="画像選択" />
+                    <input id="remove_image_button-<?php echo $i; ?>" type="button" class="button remove_image_button" value="削除" />
+                    <input type="hidden" name="therapist__img<?php echo $i; ?>__field" id="image_attachment_id-<?php echo $i; ?>" value="<?php echo get_post_meta($post->ID, '__therapist__img' . $i . '__field', true); ?>" />
+                </div>
+            </div>
+        <?php endfor; ?>
+    </div>
     <h4 class="admin_h4">名前</h4>
     <input type="text" name="therapist__name__field" value="<?php echo get_post_meta($post->ID, '__therapist__name__field', true); ?>" size="40">
     <h4 class="admin_h4">年齢</h4>
@@ -36,6 +51,7 @@ function insert_therapist_fields()
     <h4 class="admin_h4">Twitter ID</h4>
     <input type="text" name="therapist__twitter__field" value="<?php echo get_post_meta($post->ID, '__therapist__twitter__field', true); ?>" size="40">
 <?php
+    media_selector_print_scripts();
     wp_nonce_field('therapist_field_key', 'therapist_field_nonce');
 }
 
@@ -151,5 +167,66 @@ function save_therapist_fields($post_ID)
     } else {
         delete_post_meta($post_ID, 'therapist__new__field');
     }
+    for ($i = 0; $i < 4; $i++) {
+        if (isset($_POST['therapist__img' . $i . '__field'])) {
+            update_post_meta($post_ID, '__therapist__img' . $i . '__field', $_POST['therapist__img' . $i . '__field']);
+        } else {
+            delete_post_meta($post_ID, '__therapist__img' . $i . '__field');
+        }
+    }
 }
 add_action('save_post', 'save_therapist_fields');
+
+/**
+ * 管理画面に追加するメディアアップロードのスクリプト
+ *
+ * @return void
+ */
+function media_selector_print_scripts()
+{
+    $saved_attachment_post_id = get_option('media_selector_attachment_id', 0);
+?>
+    <script type='text/javascript'>
+        jQuery(document).ready(function($) {
+            var file_frame;
+            var wp_media_post_id = wp.media.model.settings.post.id;
+            var set_to_post_id = <?php echo $saved_attachment_post_id; ?>;
+            jQuery('.upload_image_button').on('click', function(event) {
+                event.preventDefault();
+
+                btn_id = $(this).attr('id');
+                btn_no = btn_id.replace('upload_image_button-', '');
+
+                if (file_frame) {
+                    file_frame.uploader.uploader.param('post_id', set_to_post_id);
+                    file_frame.open();
+                    return;
+                } else {
+                    wp.media.model.settings.post.id = set_to_post_id;
+                }
+                file_frame = wp.media.frames.file_frame = wp.media({
+                    title: '画像を選択',
+                    button: {
+                        text: '画像を設定',
+                    },
+                    multiple: false
+                });
+                file_frame.on('select', function() {
+                    attachment = file_frame.state().get('selection').first().toJSON();
+                    $('#image-preview-' + btn_no).attr('src', attachment.url);
+                    $('#image_attachment_id-' + btn_no).val(attachment.url);
+                });
+                file_frame.open();
+            });
+
+            $('.remove_image_button').on('click', function() {
+                btn_id = $(this).attr('id');
+                btn_no = btn_id.replace('remove_image_button-', '');
+                $('#image-preview-' + btn_no).attr('src', '');
+                $('#image_attachment_id-' + btn_no).val('');
+            });
+        });
+    </script>
+
+<?php
+}

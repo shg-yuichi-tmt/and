@@ -61,21 +61,23 @@
         </section>
         <section class="front_schedule fadein">
             <div class="container">
+                <?php
+                $current_time = current_time('timestamp');
+                $adjusted_time = strtotime('-3 hours', $current_time);
+                $adjusted_time = date_i18n('Y-m-d', $adjusted_time);
+                $adjusted_time_formatted = date_i18n('Y年m月d日', $adjusted_time);
+                ?>
                 <div class="h">
-                    <h2><span class="sm">TODAY'S SCHEDULE</span>本日の出勤</h2>
+                    <h2><span class="sm">TODAY'S SCHEDULE</span>本日の出勤<span class="date"><?php echo $adjusted_time_formatted; ?></span></h2>
                 </div>
                 <div class="list">
                     <?php
-                    $current_time = current_time('timestamp');
-                    $adjusted_time = strtotime('-3 hours', $current_time);
-                    $adjusted_time_formatted = date_i18n('Y-m-d', $adjusted_time);
-
                     $today_args = array(
                         'post_type' => 'therapist',
                         'posts_per_page' => 8,
                         'meta_query' => array(
                             array(
-                                'key' => 'therapist__schedule__field__' . $adjusted_time_formatted,
+                                'key' => 'therapist__schedule__field__' . $adjusted_time,
                                 'compare' => '!=',
                                 'value' => '',
                             ),
@@ -114,7 +116,7 @@
                                     </div>
                                     <div class="info">T.<?php echo get_post_meta($post->ID, '__therapist__height__field', true); ?>cm</div>
                                 </div>
-                                <div class="hour"><?php echo get_post_meta($post->ID, 'therapist__schedule__field__' . $current_date, true); ?></div>
+                                <div class="hour"><?php echo get_post_meta($post->ID, 'therapist__schedule__field__' . $adjusted_time, true); ?></div>
                             </div>
                     <?php
                         endwhile;

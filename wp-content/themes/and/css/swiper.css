@@ -1,0 +1,19 @@
+.swiper-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.swiper-container.slider {}
+
+.swiper-container.slider-thumbnail {}
+
+.swiper-container.slider-thumbnail .swiper-wrapper .swiper-slide {
+    width: calc(100% / 3);
+    height: 100%;
+    opacity: .5;
+    overflow: hidden;
+}
+
+.swiper-container.slider-thumbnail .swiper-wrapper .swiper-slide.swiper-slide-thumb-active {
+    opacity: 1;
+}

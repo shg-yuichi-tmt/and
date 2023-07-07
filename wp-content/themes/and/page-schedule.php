@@ -110,11 +110,16 @@ get_header();
                                 <div class="tx">
                                     <div class="name">
                                         <h3><?php echo get_post_meta($post->ID, '__therapist__name__field', true); ?></h3>
-                                        <span class="age">〇〇歳</span>
+                                        <span class="age">
+                                            <?php
+                                            echo get_post_meta($post->ID, '__therapist__age__field', true);
+                                            echo get_post_meta($post->ID, '__therapist__unit__field', true);
+                                            ?>
+                                        </span>
                                     </div>
                                     <div class="info">T.<?php echo get_post_meta($post->ID, '__therapist__height__field', true); ?>cm</div>
                                 </div>
-                                <div class="hour"><?php echo get_post_meta($post->ID, 'therapist__schedule__field__' . $current_date, true); ?></div>
+                                <div class="hour"><?php echo get_post_meta($post->ID, 'therapist__schedule__field__' . $adjusted_time_formatted, true); ?></div>
                             </article><!-- #post-<?php the_ID(); ?> -->
                     <?php
                         }

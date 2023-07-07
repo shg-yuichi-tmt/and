@@ -210,8 +210,37 @@ function init_scroll_scripts()
 	wp_enqueue_script('fadein', get_template_directory_uri() . '/js/fadein.js', array('jquery'), '', true);
 	wp_enqueue_script('ajax-get-therapist', get_template_directory_uri() . '/js/ajax-get-schedule-therapist.js', array('jquery'), '', true);
 	wp_localize_script('ajax-get-therapist', 'my_ajax_object', array('ajax_url' => admin_url('admin-ajax.php'), 'nonce' => wp_create_nonce('ajax_nonce_action')));
+	if (is_singular('therapist')) :
+		wp_enqueue_script('swiper', '/assets/js/swiper/swiper-bundle.min.js', array('jquery'), '', true);
+		wp_enqueue_script('swiper-custom', get_template_directory_uri() . '/js/swiper.js', array('jquery'), '', true);
+	endif;
 }
 add_action('wp_enqueue_scripts', 'init_scroll_scripts');
+
+/**
+ * Include styles
+ *
+ * @return void
+ */
+function init_enqueue_styles()
+{
+	if (is_singular('therapist')) :
+		wp_enqueue_style('swiper', '/assets/js/swiper/swiper-bundle.min.css');
+		wp_enqueue_style('swiper-custom', get_template_directory_uri() . '/css/swiper.css');
+	endif;
+}
+add_action('wp_enqueue_scripts', 'init_enqueue_styles');
+
+/**
+ * Include media script
+ *
+ * @return void
+ */
+function init_admin_media_script()
+{
+	wp_enqueue_media();
+}
+add_action('wp_enqueue_scripts', 'init_admin_media_script');
 
 /**
  * Inclue admin Style

@@ -57,7 +57,38 @@
                                     <span>New</span>
                                 </div>
                             <?php endif; ?>
-                            <?php the_post_thumbnail(); ?>
+                            <!-- スライダー-->
+                            <?php
+                            $thumbnails = [];
+                            for ($i = 0; $i < 4; $i++) :
+                                $thumbnail = get_post_meta($post->ID, '__therapist__img' . $i . '__field', true);
+                                if (!empty($thumbnail)) :
+                                    $thumbnails[] = $thumbnail;
+                                endif;
+                            endfor;
+                            ?>
+                            <div class="swiper-container slider">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><?php the_post_thumbnail(); ?></div>
+                                    <?php foreach ($thumbnails as $thumbnail) : ?>
+                                        <div class="swiper-slide">
+                                            <img src="<?php echo $thumbnail; ?>" alt="">
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+
+                            <!-- サムネイル -->
+                            <div class="swiper-container slider-thumbnail">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"> <?php the_post_thumbnail(); ?></div>
+                                    <?php foreach ($thumbnails as $thumbnail) : ?>
+                                        <div class="swiper-slide">
+                                            <img src="<?php echo $thumbnail; ?>" alt="">
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
                         </div>
                         <div class="tx">
                             <dl>

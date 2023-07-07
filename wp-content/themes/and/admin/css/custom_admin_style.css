@@ -31,3 +31,21 @@
 .schedule dl dd input {
     width: 100%;
 }
+
+.upload_media_wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.upload_media_wrap .item {
+    width: calc((100% / 4) - 60px);
+    margin-right: 20px;
+}
+
+.upload_media_wrap .item:last-child {
+    margin-right: 0;
+}
+
+.admin_media img {
+    width: 100%;
+}

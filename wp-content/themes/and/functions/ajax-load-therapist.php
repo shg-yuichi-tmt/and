@@ -47,7 +47,8 @@ function load_posts()
             $html .= '<div class="new"><span>New</span></div>';
         endif;
         $html .= $thumbnail;
-        $html .= '<div class="tx"><div class="name"><h3>' . get_post_meta($post_id, '__therapist__name__field', true) . '</h3><span class="age">〇〇歳</span></div><div class="info">T.' . get_post_meta($post_id, '__therapist__height__field', true) . 'cm</div></div><div class="hour">' . get_post_meta($post_id, 'therapist__schedule__field__' . $date, true) . '</div></article>';
+        $html .= '<div class="tx"><div class="name"><h3>' . get_post_meta($post_id, '__therapist__name__field', true) . '</h3><span class="age">'
+            . get_post_meta($post_id, '__therapist__age__field', true) . get_post_meta($post_id, '__therapist__unit__field', true) . '</span></div><div class="info">T.' . get_post_meta($post_id, '__therapist__height__field', true) . 'cm</div></div><div class="hour">' . get_post_meta($post_id, 'therapist__schedule__field__' . $date, true) . '</div></article>';
     }
     wp_reset_postdata();
 
